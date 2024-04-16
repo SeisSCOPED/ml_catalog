@@ -1,8 +1,8 @@
 FROM ghcr.io/seisscoped/container-base
 
 #   Add new layer here
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+# ENV PYTHONDONTWRITEBYTECODE=1
+# ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 RUN pip install git+https://github.com/kaiwenwang233/scoped_tutorial.git
