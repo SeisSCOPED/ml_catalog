@@ -30,4 +30,4 @@ Or copy and paste one of these URLs:
 or http://127.0.0.1:8888/?token=1cfd3a35f9d58cfd52807494ab36dd7166140bb856dbfbb7
 
 ```
-Copy and paste one of the URLs to open it in a browser.
+Copy and paste one of the URLs to open it in a browser. Then run the tutorial notebook ```MLworkflow.ipynb```
