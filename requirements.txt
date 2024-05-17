@@ -1,0 +1,17 @@
+scikit-learn
+pandas
+kafka-python
+fastapi
+uvicorn
+tqdm
+h5py==3.10.0
+tensorflow==2.15.0
+matplotlib
+numpy>=1.20.0
+scipy>=1.2.1
+obspy
+jupyterlab
+torch
+torchvision
+fsspec
+wandb
