@@ -11,7 +11,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
-RUN git clone https://github.com/kaiwenwang233/scoped_ML_tutorial.git
+RUN git clone https://github.com/kaiwenwang233/scoped_ML_tutorial.git && \
+    mv /scoped_ML_tutorial /app
 
 # RUN pip install git+https://github.com/kaiwenwang233/scoped_ML_tutorial.git
 COPY requirements.txt /app
