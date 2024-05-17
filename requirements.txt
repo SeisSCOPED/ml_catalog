@@ -10,8 +10,8 @@ matplotlib
 numpy>=1.20.0
 scipy>=1.2.1
 obspy
-jupyterlab
 torch
 torchvision
 fsspec
 wandb
+
