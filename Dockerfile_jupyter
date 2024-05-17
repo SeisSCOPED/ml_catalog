@@ -15,8 +15,8 @@ RUN git clone https://github.com/kaiwenwang233/scoped_ML_tutorial.git && \
     mv /scoped_ML_tutorial /app
 
 # RUN pip install git+https://github.com/kaiwenwang233/scoped_ML_tutorial.git
-COPY requirements.txt /app
-RUN pip install -r /app/requirements.txt 
+# COPY requirements.txt /app
+# RUN pip install -r /app/requirements.txt 
 
 RUN pip install git+https://github.com/wayneweiqiang/GaMMA.git
 COPY . /app
@@ -24,7 +24,7 @@ COPY . /app
 
 RUN apt update -y && \
     apt install -y gcc gfortran gdb make && \
-#    pip install -r /app/requirements.txt && \
+    pip install -r /app/requirements.txt && \
     cd /app/hypoInv/source && \
     make
 
