@@ -11,11 +11,10 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
-Run git clone https://github.com/kaiwenwang233/scoped_ML_tutorial.git
+RUN git clone https://github.com/kaiwenwang233/scoped_ML_tutorial.git
 
 # RUN pip install git+https://github.com/kaiwenwang233/scoped_ML_tutorial.git
-
-COPY requirements.txt /app
+# COPY requirements.txt /app
 
 RUN pip install git+https://github.com/wayneweiqiang/GaMMA.git
 COPY . /app
