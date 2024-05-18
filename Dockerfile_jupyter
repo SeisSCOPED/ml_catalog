@@ -59,11 +59,7 @@ RUN cd /app/cc/amatrice/preprocess/preprocess && \
     make && \
     cd ../runs && \
     cc -o select5 select5.c -lm 
-RUN apt update -y && \
-    apt clean && \
-    apt install software-properties-common && \
-    add-apt-repository universe && \
-    apt install csh
+RUN apt install csh
 
 USER root
 # add all the stuff to change permissions
