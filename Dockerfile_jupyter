@@ -47,7 +47,18 @@ RUN cd /app && \
     mv /app/HypoDD /app/hypodd/source && \
     docker-clean
 
-
+RUN cd /app/cc/amatrice/preprocess/preprocess && \
+    cp Makefile.Pwaves Makefile && \
+    make && \
+    cp Makefile.Swaves Makefile && \
+    make && \
+    cd /app/cc/amatrice/correl/correl && \
+    cp Makefile.amatrice.Pwaves Makefile && \
+    make && \
+    cp Makefile.amatrice.Swaves Makefile && \
+    make && \
+    cd ../runs && \
+    cc -o select5 select5.c -lm
 
 USER root
 # add all the stuff to change permissions
