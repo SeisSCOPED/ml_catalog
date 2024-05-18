@@ -11,13 +11,14 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
-RUN git clone https://github.com/kaiwenwang233/scoped_ML_tutorial.git .
+RUN git clone --depth 1 https://github.com/kaiwenwang233/scoped_ML_tutorial.git .
 
 # RUN pip install git+https://github.com/kaiwenwang233/scoped_ML_tutorial.git
 # COPY requirements.txt /app
 # RUN pip install -r /app/requirements.txt 
 
-RUN pip install git+https://github.com/wayneweiqiang/GaMMA.git
+RUN pip install git+https://github.com/wayneweiqiang/GaMMA.git \
+    && docker-clean
 COPY . /app
 
 
@@ -25,12 +26,17 @@ RUN apt update -y && \
     apt install -y gcc gfortran gdb make && \
     pip install -r /app/requirements.txt && \
     cd /app/hypoInv/source && \
-    make
+    make \
+    && docker-clean
 
-RUN pip install install torch==1.11.0+cpu torchvision==0.12.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+ARG TARGETARCH
+
+RUN if [ "$TARGETARCH" == "arm64" ]; then pip install torch torchvision; fi \
+    && if [ "$TARGETARCH" == "amd64" ]; then pip install torch==1.11.0+cpu torchvision==0.12.0+cpu -f https://download.pytorch.org/whl/torch_stable.html; fi \ 
+    && docker-clean
 
 RUN cd /app && \
-    git clone http://github.com/fwaldhauser/HypoDD.git && \
+    git clone --depth 1 http://github.com/fwaldhauser/HypoDD.git && \
     cd HypoDD && \
     # rm -r example.Amatrice/* && rmdir example.Amatrice &&\
     cd src && \
@@ -38,7 +44,8 @@ RUN cd /app && \
     cp ph2dt/ph2dt /usr/bin/ && \
     cp hypoDD/hypoDD /usr/bin/ && \
     cp hista2ddsta/hista2ddsta /usr/bin/ && \
-    mv /app/HypoDD /app/hypodd/source 
+    mv /app/HypoDD /app/hypodd/source && \
+    docker-clean
 
 
 
