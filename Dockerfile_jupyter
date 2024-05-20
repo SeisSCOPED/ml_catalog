@@ -59,9 +59,9 @@ RUN cd /app/cc/amatrice/preprocess/preprocess && \
     make && \
     cd ../runs && \
     cc -o select5 select5.c -lm 
-RUN add-apt-repository universe && \
-    apt update && \
-    apt install csh
+RUN apt update -y && \
+    apt install csh && \
+    docker-clean
 
 USER root
 # add all the stuff to change permissions
