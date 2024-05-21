@@ -1,5 +1,5 @@
 # SCOPED Container for ML catalog construction
-This notebook is part of the SCOPED container for machine learning based earthquake catalog construction. The SCOPED Container page is at https://github.com/SeisSCOPED/ml_catalog
+This notebook is part of the SCOPED container for machine learning based earthquake catalog construction. The SCOPED ML catalog tutorial page is at [https://github.com/SeisSCOPED/ml_catalog](https://github.com/kaiwenwang233/scoped_ML_tutorial/blob/master/MLworkflow_phasenetplus.ipynb)
 
 Follow the instructions to pull and run the tutorial container: 
 
